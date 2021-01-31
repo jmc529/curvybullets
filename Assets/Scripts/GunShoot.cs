@@ -13,11 +13,11 @@ public class GunShoot : MonoBehaviour
     private GameObject bulletPrefab;
 
     [SerializeField]
-    private float rotationMultiplier;
+    private float rotationMultiplier = 20;
 
     // at what point should it register as a press
     [SerializeField]
-    private float buttonTheshold;
+    private float buttonTheshold = 0.9f;
 
 
     // Start is called before the first frame update
@@ -41,7 +41,7 @@ public class GunShoot : MonoBehaviour
         Vector3 handVelocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch);
         float parallelScale = Vector3.Dot(handVelocity, gunSpawnPoint.forward);
         // get perpendicular velocity
-        Vector3 perpVelocity = handVelocity - (parallelScale * gunSpawnPoint.forward);
+        Vector3 perpVelocity = (parallelScale * gunSpawnPoint.forward) - handVelocity;
         // find scalar of vector
         float rotationSpeed = perpVelocity.magnitude * rotationMultiplier;
 
