@@ -18,16 +18,22 @@ public class GunShoot : MonoBehaviour
     // at what point should it register as a press
     [SerializeField]
     private bool buttonPressed = false;
+
+    [SerializeField]
+    private Vector3 testVelocity;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        GetComponent<Rigidbody>().velocity = testVelocity;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetMouseButtonDown(0)){
+            shoot();
+        }
         if (!buttonPressed && OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
         {
             shoot();
@@ -40,9 +46,9 @@ public class GunShoot : MonoBehaviour
 
     void shoot(){
         // get velocity and direction of aim
-        Vector3 handVelocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch);
+        Vector3 handVelocity = transform.InverseTransformDirection(GetComponent<Rigidbody>().velocity);
         
-        Vector3 desired_rotation = new Vector3(-handVelocity.y, handVelocity.z, 0);
+        Vector3 desired_rotation = new Vector3(-handVelocity.y, -handVelocity.z, 0);
 
         // find scalar of vector
         float rotationSpeed = desired_rotation.magnitude * rotationMultiplier;
