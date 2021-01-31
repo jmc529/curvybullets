@@ -18,7 +18,8 @@ namespace OVRTouchSample
         Default,
         Generic,
         PingPongBall,
-        Controller
+        Controller,
+        RHandGun
     }
 
 	// Stores pose-specific data such as the animation id and allowing gestures.
