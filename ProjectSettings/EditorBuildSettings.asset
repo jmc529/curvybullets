@@ -8,9 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Oculus/Avatar/Samples/Controllers/Controllers.unity
-    guid: 2a83dd010542d2744bf59af99b4bc47c
+  - enabled: 0
+    path: Assets/Oculus/SampleFramework/Usage/CustomHands.unity
+    guid: a4f984fcee593d2418cc61f4a993d46d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d5e52794ef222024ca8afb7df1a7489c,
       type: 2}

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,20 +24,20 @@ public class bullet : MonoBehaviour
         if(velocity <= 0.0f){
             velocity = 1.0f;
         }
-        growthRate = Math.Max(0, Math.min(1, growthRate));
+        //growthRate = Math.Max(0, Math.Min(1, growthRate));
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(currRotationAngle < rotAngle){
-            currRotationAngle = Math.Min(currRotationAngle+rotAngle*growthRate*Time.deltaTime, curveDirection);
-            // rotate the bullet
-            gameObject.transform.Rotate(currRotationAngle * Time.deltaTime, Space.Self);
-        } else {
-            // rotate the bullet
-            gameObject.transform.Rotate(curveDirection * Time.deltaTime, Space.Self);
-        }
+        //if(currRotationAngle < rotAngle){
+        //    currRotationAngle = Math.Min(currRotationAngle + rotAngle * growthRate * Time.deltaTime, rotAngle);
+        //    // rotate the bullet
+        //    gameObject.transform.Rotate(currRotationAngle * Time.deltaTime, Space.Self);
+        //} else {
+        //    // rotate the bullet
+        //    gameObject.transform.Rotate(curveDirection * Time.deltaTime, Space.Self);
+        //}
         // update the velocity (note this is for basic shape capsule, and it requires a RigidBody)
         GetComponent<Rigidbody>().velocity = transform.up * velocity;
     }
