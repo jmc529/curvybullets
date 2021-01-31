@@ -17,7 +17,7 @@ public class GunShoot : MonoBehaviour
 
     // at what point should it register as a press
     [SerializeField]
-    private float buttonTheshold = 0.9f;
+    private bool buttonPressed = false;
 
 
     // Start is called before the first frame update
@@ -29,10 +29,13 @@ public class GunShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float buttonPress = OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger);
-        // if the trigger is pressed
-        if(buttonPress >= buttonTheshold){
+        if (!buttonPressed && OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
+        {
             shoot();
+            buttonPressed = true;
+        } else if (buttonPressed && OVRInput.GetUp(OVRInput.RawButton.RIndexTrigger))
+        {
+            buttonPressed = false;
         }
     }
 

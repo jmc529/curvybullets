@@ -26,7 +26,7 @@ public class bullet : MonoBehaviour
     void Start()
     {
         // should speed be 0 or negative
-        if(speed <= 0.0f){
+        if (speed <= 0.0f) {
             speed = 1.0f;
         }
         growthRate = Mathf.Max(0, Mathf.Min(1, growthRate));
@@ -38,7 +38,7 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currRotationAngle < rotAngle){
+        if (currRotationAngle < rotAngle) {
             currRotationAngle = Mathf.Min(currRotationAngle+rotAngle*growthRate*Time.deltaTime, rotAngle);
             // rotate the bullet
             gameObject.transform.Rotate(curveDirection * currRotationAngle * Time.deltaTime, Space.Self);
@@ -54,5 +54,10 @@ public class bullet : MonoBehaviour
     public void SetRot(Vector3 direction, float angl){
         curveDirection = direction.normalized;
         rotAngle = angl;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Object.Destroy(gameObject);
     }
 }
