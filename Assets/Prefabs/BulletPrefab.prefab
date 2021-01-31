@@ -114,24 +114,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5304956748444493496
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5304956748444493497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37bbbef36a6ef8945aa4114dbe44da8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  curveDirection: {x: 0, y: 1, z: 0}
-  rotAngle: 15
-  growthRate: 0.2
-  ttl: 2
-  ttd: 5
 --- !u!96 &-6546397809414002440
 TrailRenderer:
   serializedVersion: 2
@@ -351,7 +333,9 @@ MonoBehaviour:
   speed: 10
   curveDirection: {x: 0, y: 1, z: 0}
   rotAngle: 15
-  growthRate: 0.1
+  growthRate: 0.5
+  ttl: 5
+  ttd: 5
 --- !u!114 &4760141400343185309
 MonoBehaviour:
   m_ObjectHideFlags: 0
