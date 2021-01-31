@@ -231,7 +231,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300001, guid: 1dd706bb85d8aef4e83a6229dbd62c36,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 1ee3e64696874d4489dae0a066d5295e, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -329,11 +329,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37bbbef36a6ef8945aa4114dbe44da8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletCollision: {fileID: 7367399549847833874}
-  speed: 10
+  aSource: {fileID: 7367399549847833874}
+  bulletCollision: {fileID: 8300000, guid: 1ee3e64696874d4489dae0a066d5295e, type: 3}
+  speed: 7
   curveDirection: {x: 0, y: 1, z: 0}
   rotAngle: 15
-  growthRate: 0.5
+  growthRate: 0.8
   ttl: 5
   ttd: 5
 --- !u!114 &4760141400343185309

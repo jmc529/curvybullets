@@ -1325,8 +1325,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5888953458454456866, guid: 2e3c2a2448c48d4488d1cb3f80c915ce,
         type: 3}
+      propertyPath: aSource
+      value: 
+      objectReference: {fileID: 999658899}
+    - target: {fileID: 5888953458454456866, guid: 2e3c2a2448c48d4488d1cb3f80c915ce,
+        type: 3}
+      propertyPath: gunShot
+      value: 
+      objectReference: {fileID: 8300000, guid: 1f09fc74c3ad62f40b7defacd80a8881, type: 3}
+    - target: {fileID: 5888953458454456866, guid: 2e3c2a2448c48d4488d1cb3f80c915ce,
+        type: 3}
       propertyPath: buttonTheshold
       value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888953458454456866, guid: 2e3c2a2448c48d4488d1cb3f80c915ce,
+        type: 3}
+      propertyPath: rotationMultiplier
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5888953458454456869, guid: 2e3c2a2448c48d4488d1cb3f80c915ce,
         type: 3}
@@ -1982,7 +1997,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300001, guid: 1dd706bb85d8aef4e83a6229dbd62c36,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 1f09fc74c3ad62f40b7defacd80a8881, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

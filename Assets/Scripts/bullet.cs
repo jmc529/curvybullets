@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    public AudioSource bulletCollision;
+    public AudioSource aSource;
+    public AudioClip bulletCollision;
 
     // speed to travel at
     [SerializeField]
@@ -69,7 +70,6 @@ public class bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        bulletCollision.PlayOneShot(bulletCollision.clip, 0.1f);
         Object.Destroy(gameObject);
     }
 }

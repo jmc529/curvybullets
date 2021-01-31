@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GunShoot : MonoBehaviour
 {
-    public AudioSource gunShot;
+    public AudioSource aSource;
+    public AudioClip gunShot;
 
     // transform of where the bullet should spawn
     [SerializeField]
@@ -58,6 +59,6 @@ public class GunShoot : MonoBehaviour
         //create a bullet and fire
         GameObject newBullet = Instantiate(bulletPrefab, gunSpawnPoint.position, gunSpawnPoint.rotation);
         newBullet.GetComponent<bullet>().SetRot(desired_rotation, rotationSpeed);
-        gunShot.PlayOneShot(gunShot.clip, 0.3f);
+        aSource.PlayOneShot(gunShot, 0.3f);
     }
 }
