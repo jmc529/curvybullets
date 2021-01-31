@@ -23,7 +23,7 @@ public class bullet : MonoBehaviour
         if(speed <= 0.0f){
             speed = 1.0f;
         }
-        growthRate = Mathf.Max(0, Mathf.min(1, growthRate));
+        growthRate = Mathf.Max(0, Mathf.Min(1, growthRate));
         currRotationAngle = 0;
     }
 
