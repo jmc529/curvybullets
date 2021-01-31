@@ -6,7 +6,7 @@ public class bullet : MonoBehaviour
 {
     // speed to travel at
     [SerializeField]
-    private float speed;
+    private float speed = 10;
 
     // direction to curve in
     [SerializeField]
@@ -21,14 +21,16 @@ public class bullet : MonoBehaviour
     private float growthRate = 0.2f;
     // holds the rotation angle as it grows to max
     private float currRotationAngle;
-    
+
+    [SerializeField]
+    private float ttl = 5;
+    [SerializeField]
+    private float ttd = 5;
+
     // Start is called before the first frame update
     void Start()
     {
         // should speed be 0 or negative
-        if(speed <= 0.0f){
-            speed = 1.0f;
-        }
         growthRate = Mathf.Max(0, Mathf.Min(1, growthRate));
         currRotationAngle = 0;
         curveDirection = curveDirection.normalized;
@@ -38,16 +40,23 @@ public class bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currRotationAngle < rotAngle){
-            currRotationAngle = Mathf.Min(currRotationAngle+rotAngle*growthRate*Time.deltaTime, rotAngle);
-            // rotate the bullet
-            gameObject.transform.Rotate(curveDirection * currRotationAngle * Time.deltaTime, Space.Self);
-        } else {
-            // rotate the bullet
-            gameObject.transform.Rotate(curveDirection * rotAngle * Time.deltaTime, Space.Self);
+        if(ttl > 0){
+            if(currRotationAngle < rotAngle){
+                currRotationAngle = Mathf.Min(currRotationAngle+rotAngle*growthRate*Time.deltaTime, rotAngle);
+                // rotate the bullet
+                gameObject.transform.Rotate(curveDirection * currRotationAngle * Time.deltaTime, Space.Self);
+            } else {
+                // rotate the bullet
+                gameObject.transform.Rotate(curveDirection * rotAngle * Time.deltaTime, Space.Self);
+            }
+            // update the speed (note this is for basic shape capsule, and it requires a RigidBody)
+            GetComponent<Rigidbody>().velocity = transform.forward * speed;
+            ttl-=Time.deltaTime;
         }
-        // update the speed (note this is for basic shape capsule, and it requires a RigidBody)
-        GetComponent<Rigidbody>().velocity = transform.forward * speed;
+        else if(ttd >= 0){
+            GetComponent<Rigidbody>().velocity = Vector3.zero;
+            Destroy(gameObject, ttd);
+        }
     }
 
     // sets rotation rate and direction of rotation (for instantiation)

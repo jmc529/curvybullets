@@ -19,6 +19,7 @@ public class GunShoot : MonoBehaviour
     [SerializeField]
     private float buttonTheshold = 0.9f;
 
+    // test fields end
 
     // Start is called before the first frame update
     void Start()
@@ -39,14 +40,14 @@ public class GunShoot : MonoBehaviour
     void shoot(){
         // get velocity and direction of aim
         Vector3 handVelocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTouch);
-        float parallelScale = Vector3.Dot(handVelocity, gunSpawnPoint.forward);
-        // get perpendicular velocity
-        Vector3 perpVelocity = (parallelScale * gunSpawnPoint.forward) - handVelocity;
+        
+        Vector3 desired_rotation = new Vector3(-handVelocity.y, -handVelocity.z, 0);
+
         // find scalar of vector
-        float rotationSpeed = perpVelocity.magnitude * rotationMultiplier;
+        float rotationSpeed = desired_rotation.magnitude * rotationMultiplier;
 
         //create a bullet and fire
-        GameObject newBullet = Instantiate(bulletPrefab, gunSpawnPoint);
-        newBullet.GetComponent<bullet>().SetRot(perpVelocity, rotationSpeed);
+        GameObject newBullet = Instantiate(bulletPrefab, gunSpawnPoint.position, gunSpawnPoint.rotation);
+        newBullet.GetComponent<bullet>().SetRot(desired_rotation, rotationSpeed);
     }
 }

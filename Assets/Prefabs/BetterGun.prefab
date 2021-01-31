@@ -190,8 +190,10 @@ MonoBehaviour:
   gunSpawnPoint: {fileID: 1817301297505665551}
   bulletPrefab: {fileID: 5304956748444493497, guid: dc7656181c5355841af5eef26ddbebdf,
     type: 3}
-  rotationMultiplier: 0
+  rotationMultiplier: 20
   buttonTheshold: 0.9
+  test_dir: {x: 0, y: 0, z: 0}
+  indicator: {fileID: 0}
 --- !u!1 &1817301296745224746
 GameObject:
   m_ObjectHideFlags: 0
