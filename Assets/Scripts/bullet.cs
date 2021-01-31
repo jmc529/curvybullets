@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
+    public AudioSource bulletCollision;
+
     // speed to travel at
     [SerializeField]
     private float speed = 10;
@@ -63,5 +65,11 @@ public class bullet : MonoBehaviour
     public void SetRot(Vector3 direction, float angl){
         curveDirection = direction.normalized;
         rotAngle = angl;
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        bulletCollision.PlayOneShot(bulletCollision.clip, 0.1f);
+        Object.Destroy(gameObject);
     }
 }
